@@ -1,0 +1,44 @@
+research_task:
+  description: >
+    Use and summarize scraped data from subreddit {topic} to make a detailed report on the latest rising projects in {topic}. Use ONLY 
+    scraped data from {topic} to generate the report. 
+  expected_output: >
+    Your final answer MUST be a report, text only, ignore any code or anything that 
+    isn't text. 
+    keep it at 100 words total the report.
+    Take reddit comments in the tool as top 2 only. 
+  agent: researcher
+
+blog_task:
+  description: >
+    Write a blog article with text only and with a short but impactful headline and at least 1 paragraphs. Blog should summarize 
+    the report on latest science facts found on {topic} subreddit. Style and tone should be compelling and concise, fun, technical but also use 
+    layman words for the general public. Name specific new, exciting projects, apps and companies in AI world. Don't 
+    write "**Paragraph [number of the paragraph]:**", instead start the new paragraph in a new line. Write names of projects and tools in BOLD.
+    ALWAYS include links to projects/tools/research papers. ONLY include information from Science.
+  expected_output: >
+    ```
+    ## [Title of post](link to project)
+    - Interesting facts
+    - Own thoughts on how it connects to the overall theme of the newsletter
+    ## [Title of second post](link to project)
+    - Interesting facts
+    - Own thoughts on how it connects to the overall theme of the newsletter
+    ``` '```'
+  agent: technical_writer
+
+critic_task:
+  description: >
+    The Output MUST have the following markdown format:
+  expected_output: >
+    ```
+    ## [Title of post](link to project)
+    - Interesting facts
+    - Own thoughts on how it connects to the overall theme of the newsletter
+    ## [Title of second post](link to project)
+    - Interesting facts
+    - Own thoughts on how it connects to the overall theme of the newsletter
+    ```
+    Make sure that it does and if it doesn't, rewrite it accordingly.
+    '```'
+  agent: technical_writer
